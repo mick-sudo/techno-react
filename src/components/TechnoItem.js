@@ -1,6 +1,6 @@
 export default function TechnoItem(props) {
 
-    const {techno} = props;
+    const {techno, handleDeleteTechno} = props;
 
     return(
         <div key={techno.technoid} className="card">
@@ -9,6 +9,7 @@ export default function TechnoItem(props) {
         <h4>{techno.technocategorie}</h4>
         <h2>Description</h2>
         <p>{techno.technodescription}</p>
+        <button className="btn-delete" onClick={()=> handleDeleteTechno(techno.technoid)}>delete</button>
     </div>
     )
 }

@@ -17,13 +17,18 @@ function App() {
     setTechnos([...technos, {...techno, technoid: uuidv4()}]);
   }
 
+  function handleDeleteTechno(id){
+    //filter retourne un nouveau tableau
+    setTechnos(technos.filter((tech) => tech.technoid !== id));
+  }
+
   return (
     <>
     <Menu />
     <Routes>
       <Route path='/' element={<Home />}/>
       <Route path='/add' element={<TechnoAdd handleAddTechno={handleAddTechno}/>}/>
-      <Route path='/list' element={<TechnoList technos={technos} />}/>
+      <Route path='/list' element={<TechnoList technos={technos} handleDeleteTechno={handleDeleteTechno}/>}/>
     </Routes>
      </>
   );
